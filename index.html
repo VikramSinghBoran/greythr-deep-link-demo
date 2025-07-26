@@ -128,6 +128,53 @@
         <p>🔗 Demo URL: <code>https://greythr-deep-link-demo.vercel.app/open</code></p>
         <p>Production URL would be: <code>https://greythr.app/open</code></p>
     </footer>
+
+    <div class="debug-info-section">
+        <h3>🔍 Debug Information</h3>
+        <div class="debug-grid">
+            <div class="debug-item">
+                <strong>User Agent:</strong>
+                <span id="debug-user-agent">Loading...</span>
+            </div>
+            <div class="debug-item">
+                <strong>Platform:</strong>
+                <span id="debug-platform">Detecting...</span>
+            </div>
+            <div class="debug-item">
+                <strong>Current URL:</strong>
+                <span id="debug-url">Loading...</span>
+            </div>
+            <div class="debug-item">
+                <strong>Button Status:</strong>
+                <span id="debug-button">Checking...</span>
+            </div>
+        </div>
+        
+        <div class="manual-test-section">
+            <h4>🧪 Manual Tests</h4>
+            <button onclick="greytHRDebug.testApp()" class="debug-test-btn">Test App Open</button>
+            <button onclick="greytHRDebug.showStores()" class="debug-test-btn">Show Stores</button>
+            <button onclick="console.log('Platform:', greytHRDebug.detectPlatform())" class="debug-test-btn">Log Platform</button>
+        </div>
+    </div>
+    
+    <script>
+    // Populate debug info
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            document.getElementById('debug-user-agent').textContent = navigator.userAgent;
+            document.getElementById('debug-platform').textContent = navigator.platform;
+            document.getElementById('debug-url').textContent = window.location.href;
+            
+            const btn = document.getElementById('demo-btn');
+            document.getElementById('debug-button').textContent = btn ? 'Found ✅' : 'Missing ❌';
+        }, 100);
+    });
+    </script>
+    
+    <script src="js/demo-handler.js"></script>
+    </body>
+    </html>
     
     <script src="js/demo-handler.js"></script>
 </body>
