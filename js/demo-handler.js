@@ -19,28 +19,28 @@
         console.log('🎯 greytHR Debug:', logMessage, data || '');
         
         // Visual log on page
-        addVisualLog(logMessage, data);
+        // addVisualLog(logMessage, data);
     }
 
     // Add visual log to debug panel
-    function addVisualLog(message, data = null) {
-        let debugPanel = document.getElementById('debug-panel');
-        if (!debugPanel) {
-            createDebugPanel();
-            debugPanel = document.getElementById('debug-panel');
-        }
+    // function addVisualLog(message, data = null) {
+    //     let debugPanel = document.getElementById('debug-panel');
+    //     if (!debugPanel) {
+    //         createDebugPanel();
+    //         debugPanel = document.getElementById('debug-panel');
+    //     }
         
-        const logEntry = document.createElement('div');
-        logEntry.className = 'debug-log-entry';
-        logEntry.innerHTML = `
-            <span class="debug-timestamp">${new Date().toLocaleTimeString()}</span>
-            <span class="debug-message">${message}</span>
-            ${data ? <pre class="debug-data">${JSON.stringify(data, null, 2)}</pre> : ''}
-        `;
+    //     const logEntry = document.createElement('div');
+    //     logEntry.className = 'debug-log-entry';
+    //     logEntry.innerHTML = `
+    //         <span class="debug-timestamp">${new Date().toLocaleTimeString()}</span>
+    //         <span class="debug-message">${message}</span>
+    //         ${data ? <p class="debug-data">${JSON.stringify(data, null, 2)}</p> : ''}
+    //     `;
         
-        debugPanel.appendChild(logEntry);
-        debugPanel.scrollTop = debugPanel.scrollHeight;
-    }
+    //     debugPanel.appendChild(logEntry);
+    //     debugPanel.scrollTop = debugPanel.scrollHeight;
+    // }
 
     // Create debug panel
     function createDebugPanel() {
