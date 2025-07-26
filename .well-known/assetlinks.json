@@ -5,8 +5,8 @@
         "namespace": "android_app",
         "package_name": "com.greytip.ghress",
         "sha256_cert_fingerprints": [
-          "YOUR_DEBUG_SHA256_FINGERPRINT",
-          "YOUR_RELEASE_SHA256_FINGERPRINT"
+          "FE:A2:D7:1E:52:74:2D:CE:6D:0D:71:E5:2F:27:88:3C:05:AB:2C:37:7C:07:F2:18:CA:72:A5:EC:EE:5A:56:CC",
+          "FE:A2:D7:1E:52:74:2D:CE:6D:0D:71:E5:2F:27:88:3C:05:AB:2C:37:7C:07:F2:18:CA:72:A5:EC:EE:5A:56:CC"
         ]
       }
     }

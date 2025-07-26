@@ -7,7 +7,7 @@
         demoBaseUrl: 'https://greythr-deep-link-demo.vercel.app',
         androidPackage: 'com.greytip.ghress',
         playStoreUrl: 'https://play.google.com/store/apps/details?id=com.greytip.ghress',
-        appStoreUrl: 'https://apps.apple.com/app/id[YOUR_APP_STORE_ID]'
+        appStoreUrl: 'https://apps.apple.com/app/idUFXTNUWB5S'
     };
 
     // Platform detection
