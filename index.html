@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>greytHR Deep Link Demo - Single URL Solution</title>
+    
+    <!-- iOS Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_STORE_ID, app-argument=https://greythr-deep-link-demo.vercel.app/open?demo=true">
+    
+    <!-- Android App Install Banner -->
+    <meta name="google-play-app" content="app-id=com.greytip.ghress">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="greytHR Deep Linking Demo">
+    <meta property="og:description" content="Experience the future of greytHR deep linking - Single professional URL">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://greythr-deep-link-demo.vercel.app/">
+    
+    <!-- Styling -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="demo-banner">
+        🚀 <strong>LIVE DEMO:</strong> greytHR Professional Deep Linking Solution
+    </div>
+    
+    <div class="container">
+        <div class="app-icon">
+            <div class="icon-placeholder">📱</div>
+        </div>
+        
+        <h1>greytHR</h1>
+        <p class="subtitle">Employee Self Service</p>
+        <p class="demo-text">Demonstrating the <strong>single URL solution</strong> approach</p>
+        
+        <div class="comparison-section">
+            <div class="comparison-grid">
+                <div class="comparison-box current">
+                    <h3>❌ Current: 3-Link Approach</h3>
+                    <div class="code-examples">
+                        <code>greythr://app</code>
+                        <code>https://play.google.com/store/...</code>
+                        <code>https://apps.apple.com/...</code>
+                    </div>
+                    <p class="problems">❌ Complex integration<br>❌ Platform-specific code<br>❌ Not professional</p>
+                </div>
+                
+                <div class="comparison-box future">
+                    <h3>✅ Future: Single URL Solution</h3>
+                    <div class="code-examples highlight">
+                        <code>https://greythr.app/open</code>
+                    </div>
+                    <p class="benefits">✅ Professional branding<br>✅ Simple integration<br>✅ Works everywhere</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="demo-action">
+            <h2>🎯 Try the Experience</h2>
+            <p>Click the button below to experience how the single URL approach works:</p>
+            
+            <div class="button-container">
+                <button id="demo-btn" class="btn primary">
+                    <span id="btn-text">🚀 Test Single URL Experience</span>
+                </button>
+            </div>
+            
+            <div class="store-badges" id="store-badges" style="display: none;">
+                <p class="fallback-text">App not installed? Download greytHR:</p>
+                <div class="badge-container">
+                    <a href="https://apps.apple.com/app/id[YOUR_APP_STORE_ID]" class="store-badge ios-badge">
+                        <span class="badge-icon">📱</span>
+                        <span class="badge-text">Download on<br><strong>App Store</strong></span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.greytip.ghress" class="store-badge android-badge">
+                        <span class="badge-icon">🤖</span>
+                        <span class="badge-text">Get it on<br><strong>Google Play</strong></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="features-showcase">
+            <h3>🎯 What This Demo Demonstrates:</h3>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <span class="feature-icon">🔗</span>
+                    <span class="feature-text">Single professional URL</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📱</span>
+                    <span class="feature-text">Universal Links (iOS)</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🤖</span>
+                    <span class="feature-text">App Links (Android)</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🎨</span>
+                    <span class="feature-text">Professional landing page</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔄</span>
+                    <span class="feature-text">Smart platform detection</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📊</span>
+                    <span class="feature-text">Analytics ready</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="implementation-info">
+            <h3>💡 Implementation Benefits:</h3>
+            <ul>
+                <li>✅ <strong>External developers</strong> only need ONE URL instead of 3</li>
+                <li>✅ <strong>Professional appearance</strong> - branded domain</li>
+                <li>✅ <strong>Works in social media</strong> - no URL scheme restrictions</li>
+                <li>✅ <strong>Analytics tracking</strong> - see click-through rates</li>
+                <li>✅ <strong>Deferred deep linking</strong> - context after app install</li>
+                <li>✅ <strong>Future-proof</strong> - industry standard approach</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer class="demo-footer">
+        <p>🔗 Demo URL: <code>https://greythr-deep-link-demo.vercel.app/open</code></p>
+        <p>Production URL would be: <code>https://greythr.app/open</code></p>
+    </footer>
+    
+    <script src="js/demo-handler.js"></script>
+</body>
+</html>

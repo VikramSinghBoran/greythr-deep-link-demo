@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening greytHR App...</title>
+    
+    <!-- iOS Smart App Banner with deep link context -->
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_STORE_ID, app-argument=https://greythr-deep-link-demo.vercel.app/open?source=demo&action=open">
+    
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="opening-container">
+        <div class="loading-animation">
+            <div class="spinner"></div>
+        </div>
+        
+        <h1>Opening greytHR...</h1>
+        <p id="status-text">Attempting to open the greytHR app</p>
+        
+        <div class="fallback-section" id="fallback-section" style="display: none;">
+            <h2>App not installed?</h2>
+            <p>Download greytHR to get started:</p>
+            
+            <div class="download-options">
+                <a href="https://apps.apple.com/app/id[YOUR_APP_STORE_ID]" class="download-btn ios-only">
+                    📱 Download from App Store
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.greytip.ghress" class="download-btn android-only">
+                    🤖 Download from Google Play
+                </a>
+            </div>
+        </div>
+        
+        <div class="demo-note">
+            <p>🎯 <strong>Demo Note:</strong> This shows how Universal/App Links work with a professional landing page</p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-attempt to open app
+        document.addEventListener('DOMContentLoaded', function() {
+            const statusText = document.getElementById('status-text');
+            const fallbackSection = document.getElementById('fallback-section');
+            
+            // Try to open app immediately
+            setTimeout(() => {
+                window.location.href = 'greythr://app';
+                statusText.textContent = 'Redirecting to greytHR app...';
+            }, 1000);
+            
+            // Show fallback after delay
+            setTimeout(() => {
+                statusText.textContent = 'App taking longer than expected to open';
+                fallbackSection.style.display = 'block';
+            }, 3000);
+            
+            // Platform detection for download buttons
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/iPad|iPhone|iPod/.test(userAgent)) {
+                document.body.classList.add('ios');
+            } else if (/android/i.test(userAgent)) {
+                document.body.classList.add('android');
+            } else {
+                document.body.classList.add('desktop');
+            }
+        });
+    </script>
+</body>
+</html>
