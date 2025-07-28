@@ -3,179 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>greytHR Deep Link Demo - Single URL Solution</title>
+    <title>Opening greytHR...</title>
     
-    <!-- iOS Smart App Banner -->
-    <meta name="apple-itunes-app" content="app-id=UFXTNUWB5S, app-argument=https://greythr-deep-link-demo.vercel.app/open?demo=true">
+    <!-- iOS Smart App Banner (silent redirect) -->
+    <meta name="apple-itunes-app" content="app-id=YOUR_APP_STORE_ID, app-argument=https://greythr-deep-link-demo.vercel.app/?source=gateway">
     
     <!-- Android App Install Banner -->
     <meta name="google-play-app" content="app-id=com.greytip.ghress">
     
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="greytHR Deep Linking Demo">
-    <meta property="og:description" content="Experience the future of greytHR deep linking - Single professional URL">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://greythr-deep-link-demo.vercel.app/">
+    <!-- Prevent indexing -->
+    <meta name="robots" content="noindex, nofollow">
     
-    <!-- Styling -->
-    <link rel="stylesheet" href="css/styles.css">
+    <!-- Minimal styling for loading state -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        
+        .gateway-container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .gateway-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .gateway-status {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .gateway-progress {
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .progress-step {
+            margin: 5px 0;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        .progress-step.active {
+            opacity: 1;
+            color: #90EE90;
+        }
+        
+        .progress-step.completed {
+            opacity: 1;
+            color: #90EE90;
+        }
+        
+        .progress-step.failed {
+            opacity: 1;
+            color: #ffcccb;
+        }
+        
+        /* Debug panel styles (minimal) */
+        .debug-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 11px;
+            max-width: 300px;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ff6b35;
+        }
+        
+        .debug-log {
+            margin: 2px 0;
+            padding: 2px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .debug-timestamp {
+            color: #90EE90;
+            margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .debug-panel {
+                top: 10px;
+                right: 10px;
+                max-width: 200px;
+                font-size: 10px;
+            }
+            
+            .gateway-container {
+                padding: 20px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="demo-banner">
-        🚀 <strong>LIVE DEMO:</strong> greytHR Professional Deep Linking Solution
-    </div>
-    
-    <div class="container">
-        <div class="app-icon">
-            <div class="icon-placeholder">📱</div>
-        </div>
+    <div class="gateway-container">
+        <div class="loading-spinner"></div>
+        <h1 class="gateway-title">Opening greytHR</h1>
+        <p class="gateway-status" id="status-text">Detecting platform and redirecting...</p>
         
-        <h1>greytHR</h1>
-        <p class="subtitle">Employee Self Service</p>
-        <p class="demo-text">Demonstrating the <strong>single URL solution</strong> approach</p>
-        
-        <div class="comparison-section">
-            <div class="comparison-grid">
-                <div class="comparison-box current">
-                    <h3>❌ Current: 3-Link Approach</h3>
-                    <div class="code-examples">
-                        <code>greythr://app</code>
-                        <code>https://play.google.com/store/...</code>
-                        <code>https://apps.apple.com/...</code>
-                    </div>
-                    <p class="problems">❌ Complex integration<br>❌ Platform-specific code<br>❌ Not professional</p>
-                </div>
-                
-                <div class="comparison-box future">
-                    <h3>✅ Future: Single URL Solution</h3>
-                    <div class="code-examples highlight">
-                        <code>https://greythr.app/open</code>
-                    </div>
-                    <p class="benefits">✅ Professional branding<br>✅ Simple integration<br>✅ Works everywhere</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="demo-action">
-            <h2>🎯 Try the Experience</h2>
-            <p>Click the button below to experience how the single URL approach works:</p>
-            
-            <div class="button-container">
-                <button id="demo-btn" class="btn primary">
-                    <span id="btn-text">🚀 Test Single URL Experience</span>
-                </button>
-            </div>
-            
-            <div class="store-badges" id="store-badges" style="display: none;">
-                <p class="fallback-text">App not installed? Download greytHR:</p>
-                <div class="badge-container">
-                    <a href="https://apps.apple.com/app/idUFXTNUWB5S" class="store-badge ios-badge">
-                        <span class="badge-icon">📱</span>
-                        <span class="badge-text">Download on<br><strong>App Store</strong></span>
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.greytip.ghress" class="store-badge android-badge">
-                        <span class="badge-icon">🤖</span>
-                        <span class="badge-text">Get it on<br><strong>Google Play</strong></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="features-showcase">
-            <h3>🎯 What This Demo Demonstrates:</h3>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="feature-icon">🔗</span>
-                    <span class="feature-text">Single professional URL</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📱</span>
-                    <span class="feature-text">Universal Links (iOS)</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🤖</span>
-                    <span class="feature-text">App Links (Android)</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🎨</span>
-                    <span class="feature-text">Professional landing page</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">🔄</span>
-                    <span class="feature-text">Smart platform detection</span>
-                </div>
-                <div class="feature-item">
-                    <span class="feature-icon">📊</span>
-                    <span class="feature-text">Analytics ready</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="implementation-info">
-            <h3>💡 Implementation Benefits:</h3>
-            <ul>
-                <li>✅ <strong>External developers</strong> only need ONE URL instead of 3</li>
-                <li>✅ <strong>Professional appearance</strong> - branded domain</li>
-                <li>✅ <strong>Works in social media</strong> - no URL scheme restrictions</li>
-                <li>✅ <strong>Analytics tracking</strong> - see click-through rates</li>
-                <li>✅ <strong>Deferred deep linking</strong> - context after app install</li>
-                <li>✅ <strong>Future-proof</strong> - industry standard approach</li>
-            </ul>
+        <div class="gateway-progress">
+            <div class="progress-step" id="step-detection">🔍 Detecting platform...</div>
+            <div class="progress-step" id="step-attempt">🚀 Attempting to open app...</div>
+            <div class="progress-step" id="step-fallback">🏪 Preparing fallback...</div>
+            <div class="progress-step" id="step-redirect">↗️ Redirecting...</div>
         </div>
     </div>
     
-    <footer class="demo-footer">
-        <p>🔗 Demo URL: <code>https://greythr-deep-link-demo.vercel.app/open</code></p>
-        <p>Production URL would be: <code>https://greythr.app/open</code></p>
-    </footer>
-
-    <div class="debug-info-section">
-        <h3>🔍 Debug Information</h3>
-        <div class="debug-grid">
-            <div class="debug-item">
-                <strong>User Agent:</strong>
-                <span id="debug-user-agent">Loading...</span>
-            </div>
-            <div class="debug-item">
-                <strong>Platform:</strong>
-                <span id="debug-platform">Detecting...</span>
-            </div>
-            <div class="debug-item">
-                <strong>Current URL:</strong>
-                <span id="debug-url">Loading...</span>
-            </div>
-            <div class="debug-item">
-                <strong>Button Status:</strong>
-                <span id="debug-button">Checking...</span>
-            </div>
-        </div>
-        
-        <div class="manual-test-section">
-            <h4>🧪 Manual Tests</h4>
-            <button onclick="greytHRDebug.testApp()" class="debug-test-btn">Test App Open</button>
-            <button onclick="greytHRDebug.showStores()" class="debug-test-btn">Show Stores</button>
-            <button onclick="console.log('Platform:', greytHRDebug.detectPlatform())" class="debug-test-btn">Log Platform</button>
-        </div>
+    <!-- Debug panel (will be hidden in production) -->
+    <div class="debug-panel" id="debug-panel">
+        <strong>🔍 Gateway Debug Log</strong>
+        <div id="debug-logs"></div>
     </div>
     
-    <script>
-    // Populate debug info
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-            document.getElementById('debug-user-agent').textContent = navigator.userAgent;
-            document.getElementById('debug-platform').textContent = navigator.platform;
-            document.getElementById('debug-url').textContent = window.location.href;
-            
-            const btn = document.getElementById('demo-btn');
-            document.getElementById('debug-button').textContent = btn ? 'Found ✅' : 'Missing ❌';
-        }, 100);
-    });
-    </script>
-    
-    <script src="js/demo-handler1.js"></script>
-    </body>
-    </html>
-    
-    <script src="js/demo-handler1.js"></script>
+    <script src="js/gateway-handler.js"></script>
 </body>
 </html>
