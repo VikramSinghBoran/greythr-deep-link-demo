@@ -6,7 +6,7 @@
         appScheme: 'greythr://app',
         androidPackage: 'com.greytip.ghress',
         playStoreUrl: 'https://play.google.com/store/apps/details?id=com.greytip.ghress',
-        appStoreUrl: 'https://apps.apple.com/app/id[YOUR_APP_STORE_ID]',
+        appStoreUrl: 'https://apps.apple.com/app/idUFXTNUWB5S',
         
         // Timing configuration
         appOpenTimeout: 2500,  // ms to wait before assuming app didn't open
@@ -21,7 +21,7 @@
         if (!GATEWAY_CONFIG.debugMode) return;
         
         const timestamp = new Date().toLocaleTimeString();
-        const logMessage = [${timestamp}] ${message};
+        const logMessage = `[${timestamp}] ${message}`;
         
         // Console log
         console.log('🌉 Gateway:', logMessage, data || '');
@@ -50,12 +50,12 @@
         const step = document.getElementById(stepId);
         if (!step) return;
         
-        step.className = progress-step ${status};
+        step.className = `progress-step ${status}`;
         if (text) {
             step.textContent = text;
         }
         
-        debugLog(Step ${stepId}: ${status}, { text });
+        debugLog(`Step ${stepId}: ${status}, { text }`);
     }
 
     // Update main status text
@@ -64,7 +64,7 @@
         if (statusElement) {
             statusElement.textContent = text;
         }
-        debugLog(Status: ${text});
+        debugLog(`Status: ${text}`);
     }
 
     // Platform detection
@@ -86,7 +86,7 @@
         const platformName = platform.isIOS ? 'iOS' : 
                             platform.isAndroid ? 'Android' : 'Desktop';
         
-        updateStep('step-detection', 'completed', ✅ Platform: ${platformName});
+        updateStep('step-detection', 'completed', `✅ Platform: ${platformName}`);
         
         return platform;
     }
@@ -135,7 +135,7 @@
         // Set up fallback timer
         const fallbackTimer = setTimeout(() => {
             const timeElapsed = Date.now() - startTime;
-            debugLog(⏱️ App open timeout after ${timeElapsed}ms);
+            debugLog(`⏱️ App open timeout after ${timeElapsed}ms`);
             
             document.removeEventListener('visibilitychange', visibilityHandler);
             
@@ -154,7 +154,7 @@
         
         // Attempt to open app
         try {
-            debugLog(🔗 Redirecting to: ${appUrl});
+            debugLog(`🔗 Redirecting to: ${appUrl}`);
             window.location.href = appUrl;
             updateStatus('Opening greytHR app...');
         } catch (error) {
@@ -174,17 +174,17 @@
         const storeUrl = getStoreUrl(platform);
         const storeName = platform.isIOS ? 'App Store' : 'Google Play Store';
         
-        updateStatus(Redirecting to ${storeName}...);
-        updateStep('step-fallback', 'completed', ✅ Store URL ready: ${storeName});
+        updateStatus(`Redirecting to ${storeName}...`);
+        updateStep('step-fallback', 'completed', `✅ Store URL ready: ${storeName}`);
         
         // Add small delay to show the transition
         setTimeout(() => {
-            debugLog(🔗 Redirecting to store: ${storeUrl});
-            updateStep('step-redirect', 'active', ↗️ Redirecting to ${storeName}...);
+            debugLog(`🔗 Redirecting to store: ${storeUrl}`);
+            updateStep('step-redirect', 'active', `↗️ Redirecting to ${storeName}...`);
             
             try {
                 window.location.href = storeUrl;
-                updateStep('step-redirect', 'completed', ✅ Redirected to ${storeName});
+                updateStep('step-redirect', 'completed', `✅ Redirected to ${storeName}`);
             } catch (error) {
                 debugLog('❌ Store redirect failed', error);
                 updateStep('step-redirect', 'failed', '❌ Store redirect failed');
