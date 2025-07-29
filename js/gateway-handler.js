@@ -6,7 +6,7 @@
         appScheme: 'greythr://app',
         androidPackage: 'com.greytip.ghress',
         playStoreUrl: 'https://play.google.com/store/apps/details?id=com.greytip.ghress',
-        appStoreUrl: 'https://apps.apple.com/app/idUFXTNUWB5S',
+        appStoreUrl: 'https://apps.apple.com/in/app/greythr-the-one-stop-hr-app/id959795880',
         
         // Timing configuration
         appOpenTimeout: 2500,  // ms to wait before assuming app didn't open

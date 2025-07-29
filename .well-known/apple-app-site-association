@@ -3,7 +3,7 @@
     "apps": [],
     "details": [
       {
-        "appID": "UFXTNUWB5S.com.greytip.ghress",
+        "appID": "WJA2TFA3Y2.com.greytip.ghress",
         "paths": [
           "/open",
           "/open/*",
@@ -16,7 +16,7 @@
   },
   "webcredentials": {
     "apps": [
-      "UFXTNUWB5S.com.greytip.ghress"
+      "WJA2TFA3Y2.com.greytip.ghress"
     ]
   }
 }
