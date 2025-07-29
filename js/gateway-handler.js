@@ -139,16 +139,17 @@
             
             document.removeEventListener('visibilitychange', visibilityHandler);
             
+            // FIXED LOGIC: Quick return means app opened, slow return means app not installed
             if (timeElapsed < GATEWAY_CONFIG.appOpenTimeout) {
-                // Quick return suggests app not installed
-                debugLog('❌ App likely not installed (quick return)');
+                // Quick return suggests app opened successfully
+                debugLog('✅ App likely opened successfully (quick return)');
+                updateStep('step-attempt', 'completed', '✅ App opened successfully');
+                updateStatus('greytHR app opened!');
+            } else {
+                // Slow return suggests app not installed
+                debugLog('❌ App likely not installed (slow return)');
                 updateStep('step-attempt', 'failed', '❌ App not installed');
                 redirectToStore(platform);
-            } else {
-                // Slow return might mean app opened
-                debugLog('⚠️ Uncertain app state (slow return)');
-                updateStep('step-attempt', 'completed', '⚠️ App might have opened');
-                updateStatus('App opening... If not redirected, greytHR might have opened');
             }
         }, GATEWAY_CONFIG.appOpenTimeout);
         
